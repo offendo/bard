@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bard - List</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>This is a list of verses</h1>
+    <ul>
+    {% block content %}
+    {% for obj in object_list %} 
+    <li>
+        <p>Author: {{ obj.author }}</p>
+        <p>Body: {{ obj.body }}</p>
+    </li>
+    {% endfor %}
+    {% endblock content %}
+    </ul>
+</body>
+</html>
+

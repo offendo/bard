@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 # Create your models here.
 def get_sentinel_user():
@@ -31,4 +32,10 @@ class Verse(models.Model):
     genre = models.ManyToManyField(Genre)
 
     def __str__(self):
-        return self.author + '.' + super.ID + '=' + str(self.body).split(' ')[:15] + '...'
+        return f'Author: {self.author}\nParent: {str(self.parent)}\n'\
+               f'Body: {str(self.body)[:25]}...\nMade on: {str(self.creation_date)}'
+
+    def get_absolute_url(self):
+        return reverse("verse:verse-detail", kwargs={"id": self.id})
+
+
