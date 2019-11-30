@@ -4,6 +4,11 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+# import mptt
+from mptt.models import MPTTModel, TreeForeignKey
+# from mptt.fields import TreeForeignKey
+from django.contrib.auth.models import Group
+
 # Create your models here.
 def get_sentinel_user():
     ''' Gets anonymous user when a user is deleted
@@ -15,27 +20,15 @@ class Genre(models.Model):
     '''
     name = models.CharField(null=False, max_length=30)
 
-class Verse(models.Model):
-    ''' Verse model containing the following attributes:
-        ID: id of verse
-        Body: Actual text
-        Score: Rating
-        Parent: Parent verse (null if it's a base)
-        Author: Who wrote the verse
-        Creation date: Authorship date.
-    '''
-    body = models.TextField(max_length=300)
-    score = models.IntegerField(default=0)
-    parent = models.ForeignKey('Verse', null=True, on_delete=models.SET_NULL)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET(get_sentinel_user))
+
+class Verse(MPTTModel):
+    body          = models.TextField(max_length=300)
+    score         = models.IntegerField(default=0)
+    parent        = TreeForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE,
+            db_index=True)
+    author        = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET(get_sentinel_user))
     creation_date = models.DateTimeField(default=timezone.now)
-    genre = models.ManyToManyField(Genre)
-
+    genre         = models.ManyToManyField(Genre)
+    
     def __str__(self):
-        return f'Author: {self.author}\nParent: {str(self.parent)}\n'\
-               f'Body: {str(self.body)[:25]}...\nMade on: {str(self.creation_date)}'
-
-    def get_absolute_url(self):
-        return reverse("verse:verse-detail", kwargs={"id": self.id})
-
-
+        return str(self.id) + ': ' + str(self.body)[:10] + '...'

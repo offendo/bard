@@ -1,0 +1,28 @@
+<!doctype html>
+{% load mptt_tags %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bard - Verse</title>
+    </head>
+
+    <body>
+        <ul class="root">
+            {% recursetree nodes %}
+            <li>
+                {{ node.body }}
+                <br>
+                <textarea name="text" rows="5" cols="10" style="height:100%; width: 25%" ></textarea>
+                <br>
+                <a class='reply' href={{node.id}}>Reply</a>
+                {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }} 
+                </ul>
+                {% endif %}
+            </li>
+            {% endrecursetree %}
+        </ul>
+    </body>
+</html>
+

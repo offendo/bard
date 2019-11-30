@@ -1,0 +1,74 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+ALLOWED_HOSTS	bard/bard/settings.py	/^ALLOWED_HOSTS = []$/;"	v
+AUTH_PASSWORD_VALIDATORS	bard/bard/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	v
+BASE_DIR	bard/bard/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+DATABASES	bard/bard/settings.py	/^DATABASES = {$/;"	v
+DEBUG	bard/bard/settings.py	/^DEBUG = True$/;"	v
+Genre	bard/verses/models.py	/^class Genre(models.Model):$/;"	c
+INSTALLED_APPS	bard/bard/settings.py	/^INSTALLED_APPS = [$/;"	v
+LANGUAGE_CODE	bard/bard/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
+LOGIN_REDIRECT_URL	bard/bard/settings.py	/^LOGIN_REDIRECT_URL = '\/'$/;"	v
+MIDDLEWARE	bard/bard/settings.py	/^MIDDLEWARE = [$/;"	v
+Meta	bard/user_auth/forms.py	/^    class Meta:$/;"	c	class:RegistrationForm
+Migration	bard/verses/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	c
+Migration	bard/verses/migrations/0002_auto_20191129_1720.py	/^class Migration(migrations.Migration):$/;"	c
+Migration	bard/verses/migrations/0003_auto_20191129_1720.py	/^class Migration(migrations.Migration):$/;"	c
+Migration	bard/verses/migrations/0004_auto_20191130_1627.py	/^class Migration(migrations.Migration):$/;"	c
+ROOT_URLCONF	bard/bard/settings.py	/^ROOT_URLCONF = 'bard.urls'$/;"	v
+Registration Page	bard/user_auth/templates/registration/register.html	/^    <h1>Registration Page<\/h1>$/;"	h
+RegistrationForm	bard/user_auth/forms.py	/^class RegistrationForm(UserCreationForm):$/;"	c
+SECRET_KEY	bard/bard/settings.py	/^SECRET_KEY = 'h4e)2l9-zddv4#uy(88n2eu^)wa9!$o$@#6_cha_23@sj7+6l7'$/;"	v
+STATIC_ROOT	bard/bard/settings.py	/^STATIC_ROOT = os.path.join(BASE_DIR, 'static')$/;"	v
+STATIC_URL	bard/bard/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
+TEMPLATES	bard/bard/settings.py	/^TEMPLATES = [$/;"	v
+TIME_ZONE	bard/bard/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
+This is a list of verses	bard/verses/templates/verses/list.html	/^    <h1>This is a list of verses<\/h1>$/;"	h
+This is a test	bard/user_auth/templates/user_auth/index.html	/^    <h1>This is a test<\/h1>$/;"	h
+USE_I18N	bard/bard/settings.py	/^USE_I18N = True$/;"	v
+USE_L10N	bard/bard/settings.py	/^USE_L10N = True$/;"	v
+USE_TZ	bard/bard/settings.py	/^USE_TZ = True$/;"	v
+UserAuthConfig	bard/user_auth/apps.py	/^class UserAuthConfig(AppConfig):$/;"	c
+Verse	bard/verses/models.py	/^class Verse(models.Model):$/;"	c
+VersesConfig	bard/verses/apps.py	/^class VersesConfig(AppConfig):$/;"	c
+WSGI_APPLICATION	bard/bard/settings.py	/^WSGI_APPLICATION = 'bard.wsgi.application'$/;"	v
+__str__	bard/verses/models.py	/^    def __str__(self):$/;"	m	class:Verse
+application	bard/bard/wsgi.py	/^application = get_wsgi_application()$/;"	v
+author	bard/verses/models.py	/^    author        = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET(get_sentine/;"	v	class:Verse
+body	bard/verses/models.py	/^    body          = models.TextField(max_length=300)$/;"	v	class:Verse
+creation_date	bard/verses/models.py	/^    creation_date = models.DateTimeField(default=timezone.now)$/;"	v	class:Verse
+dependencies	bard/verses/migrations/0001_initial.py	/^    dependencies = [$/;"	v	class:Migration
+dependencies	bard/verses/migrations/0002_auto_20191129_1720.py	/^    dependencies = [$/;"	v	class:Migration
+dependencies	bard/verses/migrations/0003_auto_20191129_1720.py	/^    dependencies = [$/;"	v	class:Migration
+dependencies	bard/verses/migrations/0004_auto_20191130_1627.py	/^    dependencies = [$/;"	v	class:Migration
+email	bard/user_auth/forms.py	/^    email = forms.EmailField(required=True)$/;"	v	class:RegistrationForm
+fields	bard/user_auth/forms.py	/^        fields = ('username', 'email', 'password1', 'password2')$/;"	v	class:RegistrationForm.Meta
+genre	bard/verses/models.py	/^    genre         = models.ManyToManyField(Genre)$/;"	v	class:Verse
+get_absolute_url	bard/verses/models.py	/^    def get_absolute_url(self):$/;"	m	class:Verse
+get_sentinel_user	bard/verses/models.py	/^def get_sentinel_user():$/;"	f
+index	bard/user_auth/views.py	/^def index(request):$/;"	f
+initial	bard/verses/migrations/0001_initial.py	/^    initial = True$/;"	v	class:Migration
+main	bard/manage.py	/^def main():$/;"	f
+model	bard/user_auth/forms.py	/^        model = User$/;"	v	class:RegistrationForm.Meta
+name	bard/user_auth/apps.py	/^    name = 'user_auth'$/;"	v	class:UserAuthConfig
+name	bard/verses/apps.py	/^    name = 'verses'$/;"	v	class:VersesConfig
+name	bard/verses/models.py	/^    name = models.CharField(null=False, max_length=30)$/;"	v	class:Genre
+operations	bard/verses/migrations/0001_initial.py	/^    operations = [$/;"	v	class:Migration
+operations	bard/verses/migrations/0002_auto_20191129_1720.py	/^    operations = [$/;"	v	class:Migration
+operations	bard/verses/migrations/0003_auto_20191129_1720.py	/^    operations = [$/;"	v	class:Migration
+operations	bard/verses/migrations/0004_auto_20191130_1627.py	/^    operations = [$/;"	v	class:Migration
+parent	bard/verses/models.py	/^    parent        = models.ForeignKey('Verse', null=True, related_name='child', on_delete=models/;"	v	class:Verse
+register	bard/user_auth/views.py	/^def register(request):$/;"	f
+root	bard/verses/models.py	/^    root          = models.ForeignKey('Verse', null=True, related_name='children', on_delete=mod/;"	v	class:Verse
+save	bard/user_auth/forms.py	/^    def save(self, commit=True):$/;"	m	class:RegistrationForm
+score	bard/verses/models.py	/^    score         = models.IntegerField(default=0)$/;"	v	class:Verse
+urlpatterns	bard/bard/urls.py	/^urlpatterns = [$/;"	v
+urlpatterns	bard/user_auth/urls.py	/^urlpatterns = [$/;"	v
+urlpatterns	bard/verses/urls.py	/^urlpatterns = [$/;"	v
+verse_detail_view	bard/verses/views.py	/^def verse_detail_view(request, id):$/;"	f
+verse_list_view	bard/verses/views.py	/^def verse_list_view(request, *args, **kwargs):$/;"	f

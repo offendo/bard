@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bard - List</title>
+    <title>Bard - Verses</title>
     <link rel="stylesheet" href="">
 </head>
 
@@ -12,10 +12,10 @@
     <ul>
     {% block content %}
     {% for obj in object_list %} 
-    <li>
+    <a href=verses/{{ obj.id }}>
         <p>Author: {{ obj.author }}</p>
         <p>Body: {{ obj.body }}</p>
-    </li>
+    </a>
     {% endfor %}
     {% endblock content %}
     </ul>
