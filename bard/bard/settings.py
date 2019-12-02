@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'user_auth',
     'verses',
     'mptt',
+    'widget_tweaks',
+    'vote'
 ]
 
 MIDDLEWARE = [

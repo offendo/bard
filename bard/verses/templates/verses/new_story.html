@@ -1,0 +1,26 @@
+<!doctype html>
+{%load widget_tweaks %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bard - New Story</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <a href="/verses">Back</a>    
+    <div class="flex-container">
+      <div class='row'>
+        <div class='col-6'>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/bootstrap_form.html' with form=form %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href='/verses/add_genre'> Make new genre</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

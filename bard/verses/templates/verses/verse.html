@@ -1,28 +1,53 @@
 <!doctype html>
 {% load mptt_tags %}
+{% load widget_tweaks %}
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Bard - Verse</title>
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>Bard - Verse</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
 
-    <body>
-        <ul class="root">
-            {% recursetree nodes %}
-            <li>
-                {{ node.body }}
-                <br>
-                <textarea name="text" rows="5" cols="10" style="height:100%; width: 25%" ></textarea>
-                <br>
-                <a class='reply' href={{node.id}}>Reply</a>
-                {% if not node.is_leaf_node %}
-                <ul class="children">
-                    {{ children }} 
-                </ul>
-                {% endif %}
-            </li>
-            {% endrecursetree %}
-        </ul>
-    </body>
+  <body>
+    <div class="flex-container">
+      <a href="/verses">Back</a>
+      <ul class="root">
+        <br>
+        {% recursetree nodes %}
+        <li>
+          {%include 'includes/verse_card.html' with obj=node link='/verses/tree/' %}
+          {% if not node.is_leaf_node %}
+          <ul class="children">
+            {{ children }} 
+          </ul>
+          {% endif %}
+        </li>
+        {% endrecursetree %}
+      </ul>
+    </div>
+  </body>
 </html>
 
+{%comment%}
+<div class='row'>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+      {% render_field field class="form-control input-lg" %}
+      {% if field.help_text %}
+      <small class="col-12 form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <input name="author" value={{ request.user.id }} type='hidden'></input>
+    <input name="parent" value={{ node.id }} type='hidden'></input>
+  </form>
+</div>
+{%endcomment%}

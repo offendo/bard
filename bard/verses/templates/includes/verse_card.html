@@ -1,0 +1,45 @@
+<div class="card w-50">
+  <div class="card-body">
+    <div class='flex-container'>
+      <div class="d-flex row align-items-center justify-content-center">
+        <div class="d-flex flex-column col-6">
+          <div class="d-flex row py-3">
+            <p class="card-text">{{obj.body}}</p>
+          </div>
+          <div class="d-flex row py-3">
+            <p class="card-text">
+            <a href='/profile/{{obj.author.username}}'><b>by: {{ obj.author.username }} </b></a>
+            on {{ obj.creation_date}}<br>
+
+            {% block card_text %}
+            Genres:
+            {% for g in obj.genre.all %} 
+            {{ g.name }}
+            {% endfor %}
+            {% endblock %}
+            </p>
+          </div>
+          <div class="d-flex row py-3 justify-items-center">
+            <a href="{% block link %}{{link}}{{obj.id}}{% endblock %}" class="btn btn-primary">Continue...</a>
+          </div>
+        </div>
+        <div class="d-flex flex-column col-6">
+          {% if obj.parent is not None %}
+          <form method="post">
+            {% csrf_token %}
+            <button value="+1" class="btn" style="background-color: transparent; border-color:#CCC" type='submit' name="score"> +1 </button>
+            <br>
+            Score: {{obj.votes.count}} <br>
+            <input type="hidden" name="obj_id" value="{{obj.id}}"/>
+            <button value="-1" class="btn"  style="background-color: transparent; border-color:#CCC" type='submit' name="score"> -1 </button>
+          </form>
+          {% else %}
+          <br>
+          Score: {{obj.max_mean_score}} 
+          <br>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

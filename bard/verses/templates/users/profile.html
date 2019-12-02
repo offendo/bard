@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ user.username }}'s Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Welcome to {{user.username}}'s profile page!</h1>
+    Total verses written: {{ num_written }} <br>
+    Total score: {{ votes_gotten }} <br>
+    Favorite genres: <br>
+    {% for g in fav_genres %}
+    {{ forloop.counter }}. &nbsp {{ g }}<br>
+    {% endfor %}
+
+    Favorite authors: <br>
+    {% for g in fav_authors %}
+    {{ forloop.counter }}. &nbsp {{ g }}<br>
+    {% endfor %}
+  </body>
+</html>
+
